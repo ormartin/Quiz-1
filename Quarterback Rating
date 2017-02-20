@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class QBRating {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("How many completions did this QB have: ");
+		float COMP = scan.nextFloat();
+		
+		System.out.print("How many passing attempts did this QB have: ");
+		float ATT = scan.nextFloat();
+		
+		System.out.print("How many yards did this QB throw: ");
+		float YD = scan.nextFloat();
+		
+		System.out.print("How many touchdowns did this QB throw: ");
+		float TD = scan.nextFloat();
+		
+		System.out.print("How many interceptions did this QB throw: ");
+		float INT = scan.nextFloat();
+		scan.close();
+		
+		float a = (float) ((COMP/ATT) - 0.3) * 5;
+		float b = (float) ((float) ((YD/ATT) - 3) * 0.25);
+		float c = (float) (TD/ATT) * 20;
+		float d = (float) 2.375 - ((INT/ATT) * 25);
+		float Rating = ((a+b+c+d)/6) * 100;
+		
+		if (Rating > 158.3){
+			Rating = (float) 158.3;
+			}
+		
+		System.out.printf("This QB's passer rating is " + "%.1f", Rating);
+		
+
+	}
+
+}
